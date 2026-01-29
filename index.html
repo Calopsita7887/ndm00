@@ -27,21 +27,18 @@
         linear-gradient(180deg, #000 0%, #0b0b0b 100%);
       font-family: 'Playfair Display', serif;
       color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       text-align: center;
-      overflow: hidden;
+      overflow-x: hidden;
     }
 
     /* 🎴 ICONOS DE FONDO */
     .bg-icon {
       position: fixed;
-      font-size: 4.3rem;
+      font-size: 4.2rem;
       opacity: 0.08;
-      animation: floatSlow 26s ease-in-out infinite;
+      animation: floatSlow 28s ease-in-out infinite;
       pointer-events: none;
-      z-index: 1;
+      z-index: 0;
       filter: blur(0.4px);
     }
 
@@ -50,13 +47,14 @@
 
     @keyframes floatSlow {
       0%, 100% { transform: translate(0, 0); }
-      50% { transform: translate(55px, -65px); }
+      50% { transform: translate(50px, -60px); }
     }
 
     .container {
       max-width: 420px;
       width: 100%;
-      padding: 60px 25px;
+      padding: 150px 25px 60px; /* aire real arriba */
+      margin: 0 auto;
       animation: fadeIn 1.2s ease;
       position: relative;
       z-index: 2;
@@ -69,9 +67,9 @@
 
     /* 👑 CORONA */
     .crown {
-      font-size: 4.6rem;
+      font-size: 4.8rem;
       margin-bottom: 15px;
-      filter: drop-shadow(0 0 25px var(--gold));
+      filter: drop-shadow(0 0 28px var(--gold));
       animation: crownFloat 4s ease-in-out infinite;
     }
 
@@ -107,16 +105,16 @@
       font-size: 1.05rem;
       line-height: 1.7;
       opacity: 0.9;
-      margin-bottom: 35px;
+      margin-bottom: 30px;
     }
 
-    /* +18 aviso */
+    /* 🔞 +18 */
     .age-warning {
       display: flex;
       justify-content: center;
       align-items: center;
       gap: 10px;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       letter-spacing: 2px;
       color: var(--gold-soft);
       margin-bottom: 35px;
@@ -180,7 +178,7 @@
       100% { transform: translate(100%, 100%); }
     }
 
-    /* FOOTER RESPONSABLE */
+    /* FOOTER */
     .footer {
       margin-top: 40px;
       font-size: 0.7rem;
@@ -190,8 +188,8 @@
 
     @media (max-width: 400px) {
       h1 { font-size: 2.2rem; }
-      .crown { font-size: 4.1rem; }
-      .bg-icon { font-size: 3.6rem; }
+      .crown { font-size: 4.2rem; }
+      .bg-icon { font-size: 3.4rem; }
     }
   </style>
 </head>
@@ -199,10 +197,10 @@
 <body>
 
   <!-- 🎴 ICONOS DE FONDO -->
-  <div class="bg-icon gold" style="top:14%; left:8%; animation-delay:0s;">♠</div>
-  <div class="bg-icon red"  style="top:58%; left:14%; animation-delay:7s;">♥</div>
-  <div class="bg-icon gold" style="top:32%; right:10%; animation-delay:12s;">♦</div>
-  <div class="bg-icon gold" style="top:74%; right:20%; animation-delay:18s;">♣</div>
+  <div class="bg-icon gold" style="top:12%; left:8%; animation-delay:0s;">♠</div>
+  <div class="bg-icon red"  style="top:55%; left:14%; animation-delay:8s;">♥</div>
+  <div class="bg-icon gold" style="top:30%; right:10%; animation-delay:14s;">♦</div>
+  <div class="bg-icon gold" style="top:72%; right:20%; animation-delay:20s;">♣</div>
 
   <div class="container">
     <div class="crown">👑</div>

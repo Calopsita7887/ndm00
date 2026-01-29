@@ -50,16 +50,15 @@
       50% { transform: translate(50px, -60px); }
     }
 
-    .container {
-      max-width: 420px;
-      width: 100%;
-      padding: 150px 25px 60px; /* aire real arriba */
-      margin: 0 auto;
-      animation: fadeIn 1.2s ease;
-      position: relative;
-      z-index: 2;
-    }
-
+.container {
+  max-width: 420px;
+  width: 100%;
+  padding: 115px 25px 60px; /* punto justo */
+  margin: 0 auto;
+  animation: fadeIn 1.2s ease;
+  position: relative;
+  z-index: 2;
+} 
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(40px); }
       to { opacity: 1; transform: translateY(0); }
@@ -197,10 +196,17 @@
 <body>
 
   <!-- 🎴 ICONOS DE FONDO -->
-  <div class="bg-icon gold" style="top:12%; left:8%; animation-delay:0s;">♠</div>
-  <div class="bg-icon red"  style="top:55%; left:14%; animation-delay:8s;">♥</div>
-  <div class="bg-icon gold" style="top:30%; right:10%; animation-delay:14s;">♦</div>
-  <div class="bg-icon gold" style="top:72%; right:20%; animation-delay:20s;">♣</div>
+<div class="bg-icon gold" style="top:10%; left:6%; animation-delay:0s;">♠</div>
+<div class="bg-icon red"  style="top:22%; left:18%; animation-delay:5s;">♥</div>
+
+<div class="bg-icon gold" style="top:38%; left:4%; animation-delay:10s;">♦</div>
+<div class="bg-icon gold" style="top:55%; left:22%; animation-delay:15s;">♣</div>
+
+<div class="bg-icon gold" style="top:14%; right:8%; animation-delay:3s;">♠</div>
+<div class="bg-icon red"  style="top:34%; right:18%; animation-delay:8s;">♥</div>
+
+<div class="bg-icon gold" style="top:58%; right:6%; animation-delay:13s;">♦</div>
+<div class="bg-icon gold" style="top:75%; right:20%; animation-delay:18s;">♣</div>
 
   <div class="container">
     <div class="crown">👑</div>

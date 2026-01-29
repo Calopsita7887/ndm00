@@ -1,1155 +1,187 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎰 CASINO ROYALE VIP 👑</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Playfair+Display:wght@400;600;700;900&family=Abril+Fatface&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --gold: #ffd700;
-            --gold-light: #ffe55c;
-            --gold-dark: #d4af37;
-            --burgundy: #8b0000;
-            --burgundy-dark: #5c0000;
-            --black: #000000;
-            --cream: #fffef7;
-            --red: #ff0000;
-            --emerald: #50c878;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* Optimización para 60fps fluidos */
-        * {
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        body {
-            font-family: 'Playfair Display', serif;
-            background: var(--black);
-            color: var(--cream);
-            min-height: 100vh;
-            overflow-x: hidden;
-            position: relative;
-            will-change: transform;
-        }
-
-        /* Background ultra épico con múltiples capas */
-        body::before {
-            content: '';
-            position: fixed;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: 
-                radial-gradient(ellipse at 30% 20%, rgba(139, 0, 0, 0.6) 0%, transparent 50%),
-                radial-gradient(ellipse at 70% 80%, rgba(255, 215, 0, 0.3) 0%, transparent 60%),
-                radial-gradient(ellipse at 90% 30%, rgba(139, 0, 0, 0.5) 0%, transparent 50%),
-                radial-gradient(ellipse at 10% 70%, rgba(255, 215, 0, 0.2) 0%, transparent 55%),
-                linear-gradient(125deg, #000000 0%, #1a0000 25%, #000000 50%, #0a0000 75%, #000000 100%);
-            animation: epicBgMove 30s ease-in-out infinite;
-            z-index: -2;
-            will-change: transform;
-        }
-
-        @keyframes epicBgMove {
-            0%, 100% { 
-                transform: translate(0, 0) scale(1) rotate(0deg);
-            }
-            33% { 
-                transform: translate(-5%, -5%) scale(1.1) rotate(1deg);
-            }
-            66% { 
-                transform: translate(5%, 5%) scale(1.05) rotate(-1deg);
-            }
-        }
-
-        /* Grid dinámico 3D */
-        body::after {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(rgba(255, 215, 0, 0.04) 2px, transparent 2px),
-                linear-gradient(90deg, rgba(255, 215, 0, 0.04) 2px, transparent 2px);
-            background-size: 60px 60px;
-            animation: gridFlow 25s linear infinite;
-            z-index: -1;
-            perspective: 1000px;
-            transform-style: preserve-3d;
-            will-change: transform;
-        }
-
-        @keyframes gridFlow {
-            0% { 
-                transform: translate(0, 0) rotateX(0deg);
-                opacity: 1;
-            }
-            50% { 
-                transform: translate(30px, 30px) rotateX(2deg);
-                opacity: 0.7;
-            }
-            100% { 
-                transform: translate(60px, 60px) rotateX(0deg);
-                opacity: 1;
-            }
-        }
-
-        /* Partículas premium con física realista */
-        .particle {
-            position: fixed;
-            background: var(--gold);
-            border-radius: 50%;
-            box-shadow: 0 0 20px var(--gold), 0 0 40px rgba(255, 215, 0, 0.5);
-            animation: particleFall linear infinite;
-            z-index: 1;
-            will-change: transform, opacity;
-            pointer-events: none;
-        }
-
-        .particle.tiny { width: 2px; height: 2px; }
-        .particle.small { width: 4px; height: 4px; }
-        .particle.medium { width: 6px; height: 6px; }
-        .particle.large { width: 8px; height: 8px; }
-
-        @keyframes particleFall {
-            0% {
-                transform: translateY(-10vh) translateX(0) rotate(0deg) scale(0);
-                opacity: 0;
-            }
-            5% { opacity: 1; }
-            95% { opacity: 1; }
-            100% {
-                transform: translateY(110vh) translateX(var(--drift)) rotate(720deg) scale(1.5);
-                opacity: 0;
-            }
-        }
-
-        .particle:nth-child(1) { left: 5%; --drift: 80px; animation-duration: 10s; animation-delay: 0s; }
-        .particle:nth-child(2) { left: 12%; --drift: -60px; animation-duration: 13s; animation-delay: 1s; }
-        .particle:nth-child(3) { left: 20%; --drift: 100px; animation-duration: 11s; animation-delay: 2s; }
-        .particle:nth-child(4) { left: 28%; --drift: -80px; animation-duration: 14s; animation-delay: 0.5s; }
-        .particle:nth-child(5) { left: 36%; --drift: 70px; animation-duration: 12s; animation-delay: 1.5s; }
-        .particle:nth-child(6) { left: 44%; --drift: -90px; animation-duration: 15s; animation-delay: 2.5s; }
-        .particle:nth-child(7) { left: 52%; --drift: 110px; animation-duration: 10.5s; animation-delay: 3s; }
-        .particle:nth-child(8) { left: 60%; --drift: -70px; animation-duration: 13.5s; animation-delay: 0.8s; }
-        .particle:nth-child(9) { left: 68%; --drift: 85px; animation-duration: 11.5s; animation-delay: 1.8s; }
-        .particle:nth-child(10) { left: 76%; --drift: -95px; animation-duration: 14.5s; animation-delay: 2.8s; }
-        .particle:nth-child(11) { left: 84%; --drift: 75px; animation-duration: 12.5s; animation-delay: 3.5s; }
-        .particle:nth-child(12) { left: 92%; --drift: -85px; animation-duration: 13.8s; animation-delay: 1.2s; }
-
-        /* Símbolos de cartas flotantes 3D */
-        .card-symbol {
-            position: fixed;
-            font-size: 4rem;
-            opacity: 0.12;
-            animation: cardFloat 25s ease-in-out infinite;
-            z-index: 0;
-            filter: blur(1.5px);
-            text-shadow: 0 0 30px currentColor;
-            will-change: transform, opacity;
-            pointer-events: none;
-        }
-
-        @keyframes cardFloat {
-            0%, 100% { 
-                transform: translateY(0) translateX(0) rotate(0deg) scale(1);
-                opacity: 0.08;
-            }
-            25% { 
-                transform: translateY(-120px) translateX(50px) rotate(90deg) scale(1.3);
-                opacity: 0.15;
-            }
-            50% { 
-                transform: translateY(-80px) translateX(-30px) rotate(180deg) scale(1.1);
-                opacity: 0.12;
-            }
-            75% { 
-                transform: translateY(-150px) translateX(40px) rotate(270deg) scale(1.4);
-                opacity: 0.18;
-            }
-        }
-
-        .card-symbol:nth-child(13) { top: 15%; left: 8%; color: var(--red); animation-delay: 0s; animation-duration: 20s; }
-        .card-symbol:nth-child(14) { top: 65%; left: 85%; color: var(--gold); animation-delay: 5s; animation-duration: 22s; }
-        .card-symbol:nth-child(15) { top: 35%; left: 92%; color: var(--red); animation-delay: 10s; animation-duration: 24s; }
-        .card-symbol:nth-child(16) { top: 85%; left: 15%; color: var(--gold); animation-delay: 15s; animation-duration: 26s; }
-        .card-symbol:nth-child(17) { top: 50%; left: 5%; color: var(--red); animation-delay: 18s; animation-duration: 21s; }
-        .card-symbol:nth-child(18) { top: 25%; left: 50%; color: var(--gold); animation-delay: 8s; animation-duration: 23s; }
-
-        /* Luces volumétricas cinematográficas */
-        .volumetric-light {
-            position: fixed;
-            width: 1000px;
-            height: 1000px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(255, 215, 0, 0.25) 0%, rgba(255, 215, 0, 0.15) 30%, transparent 70%);
-            pointer-events: none;
-            z-index: 0;
-            filter: blur(50px);
-            animation: volumetricMove 35s ease-in-out infinite;
-            will-change: transform, opacity;
-        }
-
-        @keyframes volumetricMove {
-            0%, 100% { 
-                transform: translate(0, 0) scale(1);
-                opacity: 0.6;
-            }
-            33% { 
-                transform: translate(150px, -100px) scale(1.4);
-                opacity: 0.9;
-            }
-            66% { 
-                transform: translate(-100px, 150px) scale(1.2);
-                opacity: 0.7;
-            }
-        }
-
-        .volumetric-light.v1 { top: -500px; left: -200px; }
-        .volumetric-light.v2 { bottom: -500px; right: -200px; animation-delay: -15s; background: radial-gradient(circle, rgba(139, 0, 0, 0.3) 0%, rgba(139, 0, 0, 0.2) 30%, transparent 70%); }
-        .volumetric-light.v3 { top: 50%; left: 50%; transform: translate(-50%, -50%); animation-delay: -25s; }
-
-        /* Spotlight dinámico */
-        .spotlight {
-            position: fixed;
-            width: 1200px;
-            height: 1200px;
-            background: radial-gradient(circle, rgba(255, 215, 0, 0.15) 0%, transparent 70%);
-            pointer-events: none;
-            z-index: 0;
-            filter: blur(80px);
-            animation: spotlightScan 20s ease-in-out infinite;
-            will-change: transform;
-        }
-
-        @keyframes spotlightScan {
-            0%, 100% { 
-                top: -10%;
-                left: 50%;
-                transform: translateX(-50%) scale(1);
-            }
-            25% { 
-                top: 30%;
-                left: 80%;
-                transform: translateX(-50%) scale(1.3);
-            }
-            50% { 
-                top: 60%;
-                left: 20%;
-                transform: translateX(-50%) scale(1.1);
-            }
-            75% { 
-                top: 40%;
-                left: 60%;
-                transform: translateX(-50%) scale(1.4);
-            }
-        }
-
-        /* Ornamentos de esquina con efecto 3D */
-        .corner-ornament {
-            position: fixed;
-            width: 280px;
-            height: 280px;
-            border: 5px solid var(--gold);
-            z-index: 2;
-            opacity: 0.4;
-            animation: ornamentBreath 4s ease-in-out infinite;
-            will-change: transform, opacity, box-shadow;
-            pointer-events: none;
-        }
-
-        @keyframes ornamentBreath {
-            0%, 100% { 
-                box-shadow: 
-                    0 0 40px rgba(255, 215, 0, 0.5),
-                    inset 0 0 40px rgba(255, 215, 0, 0.3);
-                opacity: 0.4;
-                transform: scale(1);
-            }
-            50% { 
-                box-shadow: 
-                    0 0 80px rgba(255, 215, 0, 0.8),
-                    inset 0 0 80px rgba(255, 215, 0, 0.5);
-                opacity: 0.6;
-                transform: scale(1.03);
-            }
-        }
-
-        .corner-ornament.tl { top: 15px; left: 15px; border-right: none; border-bottom: none; }
-        .corner-ornament.tr { top: 15px; right: 15px; border-left: none; border-bottom: none; animation-delay: -1s; }
-        .corner-ornament.bl { bottom: 15px; left: 15px; border-right: none; border-top: none; animation-delay: -2s; }
-        .corner-ornament.br { bottom: 15px; right: 15px; border-left: none; border-top: none; animation-delay: -3s; }
-
-        .container {
-            max-width: 750px;
-            margin: 0 auto;
-            padding: 70px 35px 120px;
-            position: relative;
-            z-index: 3;
-        }
-
-        /* Header con entrada cinematográfica */
-        .header {
-            text-align: center;
-            margin-bottom: 90px;
-            animation: cinematic-entrance 2.5s cubic-bezier(0.19, 1, 0.22, 1);
-            position: relative;
-        }
-
-        @keyframes cinematic-entrance {
-            0% {
-                opacity: 0;
-                transform: scale(0.3) translateY(-200px) rotateX(90deg);
-                filter: blur(20px);
-            }
-            40% {
-                transform: scale(1.08) translateY(15px) rotateX(-3deg);
-            }
-            70% {
-                transform: scale(0.98) translateY(-5px) rotateX(2deg);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1) translateY(0) rotateX(0);
-                filter: blur(0);
-            }
-        }
-
-        /* Corona ultra épica con aura */
-        .crown-container {
-            position: relative;
-            display: inline-block;
-            margin-bottom: 35px;
-        }
-
-        .crown-aura {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, rgba(255, 215, 0, 0.4) 0%, transparent 70%);
-            border-radius: 50%;
-            animation: auraExpand 3s ease-in-out infinite;
-            filter: blur(20px);
-            z-index: -1;
-        }
-
-        @keyframes auraExpand {
-            0%, 100% { 
-                transform: translate(-50%, -50%) scale(0.8);
-                opacity: 0.4;
-            }
-            50% { 
-                transform: translate(-50%, -50%) scale(1.2);
-                opacity: 0.8;
-            }
-        }
-
-        .crown-icon {
-            font-size: 6rem;
-            animation: crownMajestic 5s ease-in-out infinite;
-            filter: drop-shadow(0 0 40px var(--gold)) drop-shadow(0 0 80px rgba(255, 215, 0, 0.6));
-            display: inline-block;
-            position: relative;
-            will-change: transform, filter;
-        }
-
-        @keyframes crownMajestic {
-            0%, 100% { 
-                transform: translateY(0) rotate(-10deg) scale(1);
-            }
-            20% { 
-                transform: translateY(-30px) rotate(-5deg) scale(1.15);
-            }
-            40% { 
-                transform: translateY(-15px) rotate(5deg) scale(1.08);
-            }
-            60% { 
-                transform: translateY(-35px) rotate(0deg) scale(1.18);
-            }
-            80% { 
-                transform: translateY(-20px) rotate(10deg) scale(1.1);
-            }
-        }
-
-        /* Sparkles mejorados */
-        .crown-sparkle {
-            position: absolute;
-            font-size: 2rem;
-            animation: megaSparkle 2.5s ease-in-out infinite;
-            will-change: transform, opacity;
-        }
-
-        @keyframes megaSparkle {
-            0%, 100% { 
-                opacity: 0;
-                transform: scale(0) rotate(0deg);
-                filter: blur(5px);
-            }
-            50% { 
-                opacity: 1;
-                transform: scale(2) rotate(180deg);
-                filter: blur(0);
-            }
-        }
-
-        .crown-sparkle:nth-child(1) { top: -10px; left: -10px; animation-delay: 0s; }
-        .crown-sparkle:nth-child(2) { top: -10px; right: -10px; animation-delay: 0.4s; }
-        .crown-sparkle:nth-child(3) { bottom: -10px; left: -10px; animation-delay: 0.8s; }
-        .crown-sparkle:nth-child(4) { bottom: -10px; right: -10px; animation-delay: 1.2s; }
-        .crown-sparkle:nth-child(5) { top: 50%; left: -20px; transform: translateY(-50%); animation-delay: 0.2s; }
-        .crown-sparkle:nth-child(6) { top: 50%; right: -20px; transform: translateY(-50%); animation-delay: 0.6s; }
-
-        .main-title {
-            font-family: 'Abril Fatface', serif;
-            font-size: 6rem;
-            font-weight: 900;
-            color: var(--gold);
-            text-transform: uppercase;
-            letter-spacing: 15px;
-            margin-bottom: 25px;
-            text-shadow: 
-                0 0 60px rgba(255, 215, 0, 1),
-                0 0 120px rgba(255, 215, 0, 0.8),
-                0 0 180px rgba(255, 215, 0, 0.6),
-                0 0 240px rgba(255, 215, 0, 0.4),
-                8px 8px 20px rgba(0, 0, 0, 1);
-            animation: titleEpic 4s ease-in-out infinite;
-            line-height: 1;
-            will-change: transform, text-shadow;
-        }
-
-        @keyframes titleEpic {
-            0%, 100% { 
-                text-shadow: 
-                    0 0 60px rgba(255, 215, 0, 1),
-                    0 0 120px rgba(255, 215, 0, 0.8),
-                    0 0 180px rgba(255, 215, 0, 0.6),
-                    0 0 240px rgba(255, 215, 0, 0.4),
-                    8px 8px 20px rgba(0, 0, 0, 1);
-                transform: scale(1);
-            }
-            50% { 
-                text-shadow: 
-                    0 0 80px rgba(255, 215, 0, 1),
-                    0 0 160px rgba(255, 215, 0, 1),
-                    0 0 240px rgba(255, 215, 0, 0.8),
-                    0 0 320px rgba(255, 215, 0, 0.6),
-                    8px 8px 20px rgba(0, 0, 0, 1);
-                transform: scale(1.02);
-            }
-        }
-
-        .subtitle {
-            font-family: 'Cinzel', serif;
-            font-size: 2rem;
-            color: var(--gold-light);
-            letter-spacing: 10px;
-            margin-bottom: 45px;
-            text-transform: uppercase;
-            opacity: 0.98;
-            text-shadow: 0 0 30px rgba(255, 215, 0, 0.7), 0 4px 10px rgba(0, 0, 0, 0.8);
-            animation: subtitleShimmer 5s ease-in-out infinite;
-            will-change: opacity, text-shadow;
-        }
-
-        @keyframes subtitleShimmer {
-            0%, 100% { 
-                opacity: 0.95;
-                text-shadow: 0 0 30px rgba(255, 215, 0, 0.7), 0 4px 10px rgba(0, 0, 0, 0.8);
-            }
-            50% { 
-                opacity: 1;
-                text-shadow: 0 0 50px rgba(255, 215, 0, 1), 0 4px 10px rgba(0, 0, 0, 0.8);
-            }
-        }
-
-        /* Línea divisoria épica */
-        .vip-line {
-            width: 500px;
-            height: 4px;
-            background: linear-gradient(90deg, transparent, var(--gold-dark), var(--gold), var(--gold-light), var(--gold), var(--gold-dark), transparent);
-            margin: 50px auto;
-            position: relative;
-            animation: lineEpicGlow 3s ease-in-out infinite;
-            will-change: box-shadow;
-        }
-
-        @keyframes lineEpicGlow {
-            0%, 100% { 
-                box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
-            }
-            50% { 
-                box-shadow: 0 0 60px rgba(255, 215, 0, 1), 0 0 100px rgba(255, 215, 0, 0.6);
-            }
-        }
-
-        .vip-line::before {
-            content: '◆';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: var(--gold);
-            background: var(--black);
-            padding: 0 20px;
-            font-size: 2rem;
-            animation: diamondEpic 8s linear infinite;
-            filter: drop-shadow(0 0 20px var(--gold));
-            will-change: transform;
-        }
-
-        @keyframes diamondEpic {
-            0%, 100% { transform: translate(-50%, -50%) rotate(0deg) scale(1); }
-            25% { transform: translate(-50%, -50%) rotate(90deg) scale(1.3); }
-            50% { transform: translate(-50%, -50%) rotate(180deg) scale(1); }
-            75% { transform: translate(-50%, -50%) rotate(270deg) scale(1.3); }
-        }
-
-        .description {
-            font-size: 1.5rem;
-            color: var(--cream);
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 2.1;
-            opacity: 0.97;
-            text-align: center;
-            text-shadow: 0 3px 15px rgba(0, 0, 0, 0.9);
-        }
-
-        .premium-badge {
-            display: inline-block;
-            padding: 15px 45px;
-            border: 4px solid var(--gold);
-            border-radius: 60px;
-            font-family: 'Cinzel', serif;
-            font-size: 0.95rem;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            color: var(--gold);
-            margin-top: 40px;
-            background: rgba(0, 0, 0, 0.7);
-            box-shadow: 
-                0 0 40px rgba(255, 215, 0, 0.5),
-                inset 0 0 30px rgba(255, 215, 0, 0.3);
-            animation: badgeEpic 4s ease-in-out infinite;
-            will-change: transform, box-shadow;
-        }
-
-        @keyframes badgeEpic {
-            0%, 100% { 
-                transform: scale(1);
-                box-shadow: 
-                    0 0 40px rgba(255, 215, 0, 0.5),
-                    inset 0 0 30px rgba(255, 215, 0, 0.3);
-            }
-            50% { 
-                transform: scale(1.06);
-                box-shadow: 
-                    0 0 70px rgba(255, 215, 0, 0.8),
-                    inset 0 0 50px rgba(255, 215, 0, 0.5);
-            }
-        }
-
-        /* Links section */
-        .links-container {
-            margin-top: 100px;
-        }
-
-        .section-title {
-            font-family: 'Cinzel', serif;
-            font-size: 2.5rem;
-            color: var(--gold);
-            text-align: center;
-            margin-bottom: 60px;
-            letter-spacing: 8px;
-            text-transform: uppercase;
-            text-shadow: 
-                0 0 40px rgba(255, 215, 0, 0.9),
-                0 0 80px rgba(255, 215, 0, 0.6);
-            position: relative;
-            animation: sectionTitlePulse 5s ease-in-out infinite;
-            will-change: text-shadow;
-        }
-
-        @keyframes sectionTitlePulse {
-            0%, 100% { 
-                text-shadow: 
-                    0 0 40px rgba(255, 215, 0, 0.9),
-                    0 0 80px rgba(255, 215, 0, 0.6);
-            }
-            50% { 
-                text-shadow: 
-                    0 0 60px rgba(255, 215, 0, 1),
-                    0 0 120px rgba(255, 215, 0, 0.8);
-            }
-        }
-
-        .section-title::before,
-        .section-title::after {
-            content: '✦';
-            margin: 0 25px;
-            animation: starSpin 5s linear infinite;
-            display: inline-block;
-            will-change: transform;
-        }
-
-        @keyframes starSpin {
-            0%, 100% { transform: rotate(0deg) scale(1); }
-            50% { transform: rotate(180deg) scale(1.3); }
-        }
-
-        .whatsapp-links {
-            display: flex;
-            flex-direction: column;
-            gap: 35px;
-        }
-
-        .link-item {
-            animation: epicSlideIn 1.2s cubic-bezier(0.19, 1, 0.22, 1) backwards;
-            will-change: transform, opacity;
-        }
-
-        .link-item:nth-child(1) { animation-delay: 0.2s; }
-        .link-item:nth-child(2) { animation-delay: 0.35s; }
-        .link-item:nth-child(3) { animation-delay: 0.5s; }
-        .link-item:nth-child(4) { animation-delay: 0.65s; }
-        .link-item:nth-child(5) { animation-delay: 0.8s; }
-        .link-item:nth-child(6) { animation-delay: 0.95s; }
-
-        @keyframes epicSlideIn {
-            0% {
-                opacity: 0;
-                transform: translateX(-150px) rotateY(-40deg) scale(0.8);
-                filter: blur(10px);
-            }
-            60% {
-                transform: translateX(10px) rotateY(5deg) scale(1.03);
-            }
-            100% {
-                opacity: 1;
-                transform: translateX(0) rotateY(0) scale(1);
-                filter: blur(0);
-            }
-        }
-
-        /* Botones ultra premium */
-        .whatsapp-btn {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 32px 45px;
-            background: linear-gradient(135deg, 
-                rgba(139, 0, 0, 0.7) 0%, 
-                rgba(0, 0, 0, 0.95) 50%, 
-                rgba(139, 0, 0, 0.7) 100%);
-            border: 5px solid var(--gold);
-            border-radius: 8px;
-            text-decoration: none;
-            color: var(--cream);
-            position: relative;
-            overflow: hidden;
-            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-            box-shadow: 
-                0 20px 60px rgba(0, 0, 0, 0.9),
-                inset 0 3px 0 rgba(255, 215, 0, 0.5),
-                inset 0 -3px 0 rgba(0, 0, 0, 0.5);
-            will-change: transform, box-shadow, border-color;
-        }
-
-        /* Capa de brillo animada */
-        .whatsapp-btn::before {
-            content: '';
-            position: absolute;
-            top: -100%;
-            left: -100%;
-            width: 300%;
-            height: 300%;
-            background: linear-gradient(45deg, 
-                transparent 30%, 
-                rgba(255, 215, 0, 0.5) 50%, 
-                transparent 70%);
-            transform: rotate(45deg);
-            transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1);
-            will-change: transform;
-        }
-
-        .whatsapp-btn:hover::before {
-            animation: megaShine 1.2s ease-in-out infinite;
-        }
-
-        @keyframes megaShine {
-            0% { 
-                top: -100%;
-                left: -100%;
-            }
-            100% { 
-                top: 100%;
-                left: 100%;
-            }
-        }
-
-        /* Borde pulsante */
-        .whatsapp-btn::after {
-            content: '';
-            position: absolute;
-            inset: -5px;
-            border: 4px solid var(--gold-light);
-            border-radius: 8px;
-            opacity: 0;
-            transition: opacity 0.4s;
-            will-change: opacity, transform;
-        }
-
-        .whatsapp-btn:hover {
-            transform: translateX(25px) scale(1.04);
-            background: linear-gradient(135deg, 
-                rgba(139, 0, 0, 0.9) 0%, 
-                rgba(255, 215, 0, 0.25) 50%, 
-                rgba(139, 0, 0, 0.9) 100%);
-            border-color: var(--gold-light);
-            box-shadow: 
-                0 25px 100px rgba(255, 215, 0, 0.6),
-                inset 0 0 60px rgba(255, 215, 0, 0.4),
-                0 0 120px rgba(255, 215, 0, 0.5);
-        }
-
-        .whatsapp-btn:hover::after {
-            opacity: 1;
-            animation: borderMega 1s infinite;
-        }
-
-        @keyframes borderMega {
-            0%, 100% { 
-                transform: scale(1);
-                opacity: 1;
-            }
-            50% { 
-                transform: scale(0.96);
-                opacity: 0.6;
-            }
-        }
-
-        .btn-content {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .wa-icon {
-            font-size: 3.5rem;
-            filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.9));
-            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-            animation: iconBreath 4s ease-in-out infinite;
-            will-change: transform, filter;
-        }
-
-        @keyframes iconBreath {
-            0%, 100% { 
-                transform: translateY(0) scale(1);
-            }
-            50% { 
-                transform: translateY(-8px) scale(1.05);
-            }
-        }
-
-        .whatsapp-btn:hover .wa-icon {
-            transform: scale(1.4) rotate(25deg);
-            filter: drop-shadow(0 0 40px rgba(255, 215, 0, 1));
-            animation: iconEpicSpin 0.7s cubic-bezier(0.19, 1, 0.22, 1);
-        }
-
-        @keyframes iconEpicSpin {
-            0% { 
-                transform: scale(1) rotate(0deg);
-            }
-            30% {
-                transform: scale(1.5) rotate(120deg);
-            }
-            60% {
-                transform: scale(1.3) rotate(240deg);
-            }
-            100% { 
-                transform: scale(1.4) rotate(360deg);
-            }
-        }
-
-        .btn-text {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .btn-title {
-            font-family: 'Cinzel', serif;
-            font-size: 1.7rem;
-            font-weight: 700;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            text-shadow: 0 3px 15px rgba(0, 0, 0, 0.9);
-        }
-
-        .btn-subtitle {
-            font-size: 1.2rem;
-            color: var(--gold-light);
-            opacity: 0.95;
-            letter-spacing: 2px;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
-        }
-
-        .arrow {
-            font-size: 3rem;
-            color: var(--gold);
-            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-            position: relative;
-            z-index: 1;
-            filter: drop-shadow(0 0 20px var(--gold));
-            animation: arrowFloat 3s ease-in-out infinite;
-            will-change: transform, filter;
-        }
-
-        @keyframes arrowFloat {
-            0%, 100% { 
-                transform: translateX(0);
-            }
-            50% { 
-                transform: translateX(8px);
-            }
-        }
-
-        .whatsapp-btn:hover .arrow {
-            transform: translateX(20px) scale(1.5);
-            filter: drop-shadow(0 0 40px var(--gold));
-            animation: arrowEpicShake 0.6s ease-in-out;
-        }
-
-        @keyframes arrowEpicShake {
-            0%, 100% { 
-                transform: translateX(20px) scale(1.5) rotate(0deg);
-            }
-            20% { 
-                transform: translateX(20px) scale(1.5) rotate(15deg);
-            }
-            40% { 
-                transform: translateX(20px) scale(1.5) rotate(-15deg);
-            }
-            60% { 
-                transform: translateX(20px) scale(1.5) rotate(10deg);
-            }
-            80% { 
-                transform: translateX(20px) scale(1.5) rotate(-10deg);
-            }
-        }
-
-        /* Divisor entre links */
-        .link-divider {
-            text-align: center;
-            font-size: 1.8rem;
-            color: var(--gold);
-            opacity: 0.35;
-            margin: 15px 0;
-            animation: dividerFloat 4s ease-in-out infinite;
-            will-change: transform, opacity;
-        }
-
-        @keyframes dividerFloat {
-            0%, 100% { 
-                transform: translateY(0) rotate(0deg) scale(1);
-                opacity: 0.3;
-            }
-            50% { 
-                transform: translateY(-12px) rotate(180deg) scale(1.2);
-                opacity: 0.5;
-            }
-        }
-
-        /* Footer épico */
-        .footer {
-            text-align: center;
-            margin-top: 120px;
-            padding: 60px 0;
-            border-top: 4px solid rgba(255, 215, 0, 0.5);
-            animation: footerFade 3s ease 2s backwards;
-            position: relative;
-        }
-
-        .footer::before {
-            content: '';
-            position: absolute;
-            top: -4px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 150px;
-            height: 4px;
-            background: var(--gold);
-            box-shadow: 0 0 30px var(--gold);
-            animation: footerLineGlow 3s ease-in-out infinite;
-        }
-
-        @keyframes footerLineGlow {
-            0%, 100% { 
-                box-shadow: 0 0 30px var(--gold);
-            }
-            50% { 
-                box-shadow: 0 0 60px var(--gold), 0 0 100px rgba(255, 215, 0, 0.6);
-            }
-        }
-
-        @keyframes footerFade {
-            from { 
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to { 
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .footer-symbols {
-            font-size: 3rem;
-            color: var(--gold);
-            margin-bottom: 30px;
-            opacity: 0.4;
-            animation: footerSymbolsRotate 12s linear infinite;
-            will-change: transform;
-        }
-
-        @keyframes footerSymbolsRotate {
-            0%, 100% { 
-                transform: rotate(0deg) scale(1);
-            }
-            50% { 
-                transform: rotate(180deg) scale(1.2);
-            }
-        }
-
-        .footer-text {
-            font-family: 'Cinzel', serif;
-            font-size: 1.3rem;
-            color: var(--gold-light);
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            text-shadow: 0 0 25px rgba(255, 215, 0, 0.6);
-        }
-
-        /* Optimización responsive */
-        @media (max-width: 768px) {
-            .ornament-corner { width: 140px; height: 140px; }
-            .main-title { font-size: 3.5rem; letter-spacing: 8px; }
-            .subtitle { font-size: 1.5rem; letter-spacing: 5px; }
-            .crown-icon { font-size: 5rem; }
-            .description { font-size: 1.3rem; }
-            .whatsapp-btn { padding: 26px 32px; }
-            .btn-title { font-size: 1.4rem; letter-spacing: 2px; }
-            .wa-icon { font-size: 3rem; }
-            .container { padding: 50px 25px 80px; }
-            .section-title { font-size: 2rem; }
-            .vip-line { width: 350px; }
-        }
-
-        @media (max-width: 480px) {
-            .ornament-corner { width: 100px; height: 100px; border-width: 3px; }
-            .main-title { font-size: 2.5rem; letter-spacing: 4px; }
-            .subtitle { font-size: 1.2rem; letter-spacing: 3px; }
-            .crown-icon { font-size: 4rem; }
-            .whatsapp-btn { padding: 22px 25px; }
-            .btn-title { font-size: 1.2rem; letter-spacing: 1px; }
-            .btn-subtitle { font-size: 1rem; }
-            .wa-icon { font-size: 2.5rem; }
-            .premium-badge { font-size: 0.75rem; padding: 12px 30px; }
-            .vip-line { width: 280px; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Casino VIP 👑</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --gold: #d4af37;
+      --gold-soft: #f5e6a8;
+      --dark: #0b0b0b;
+      --red: #7a0000;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top, rgba(212,175,55,0.15), transparent 60%),
+        linear-gradient(180deg, #000 0%, #0b0b0b 100%);
+      font-family: 'Playfair Display', serif;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 420px;
+      width: 100%;
+      padding: 60px 25px;
+      animation: fadeIn 1.2s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* 👑 corona viva */
+    .crown {
+      font-size: 4.5rem;
+      margin-bottom: 15px;
+      filter: drop-shadow(0 0 25px var(--gold));
+      animation: crownFloat 4s ease-in-out infinite;
+    }
+
+    @keyframes crownFloat {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
+    h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 2.8rem;
+      letter-spacing: 6px;
+      color: var(--gold);
+      margin-bottom: 10px;
+      text-shadow: 0 0 25px rgba(212,175,55,0.6);
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      letter-spacing: 4px;
+      color: var(--gold-soft);
+      margin-bottom: 25px;
+    }
+
+    .divider {
+      width: 120px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 0 auto 25px;
+    }
+
+    .text {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      opacity: 0.9;
+      margin-bottom: 35px;
+    }
+
+    /* 📲 botón WhatsApp */
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 20px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #3a0000, #000);
+      border: 2px solid var(--gold);
+      text-decoration: none;
+      color: #fff;
+      font-family: 'Cinzel', serif;
+      letter-spacing: 3px;
+      font-size: 0.95rem;
+      transition: all .35s ease;
+      box-shadow: 0 15px 40px rgba(0,0,0,.8);
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 18px;
+    }
+
+    .btn span {
+      font-size: 1.4rem;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 45px rgba(212,175,55,.6);
+    }
+
+    /* ✨ brillo automático */
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: -120%;
+      left: -120%;
+      width: 300%;
+      height: 300%;
+      background: linear-gradient(
+        45deg,
+        transparent 40%,
+        rgba(212,175,55,0.35) 50%,
+        transparent 60%
+      );
+      animation: shine 6s ease-in-out infinite;
+    }
+
+    @keyframes shine {
+      0%,60% { transform: translate(-100%, -100%); }
+      100% { transform: translate(100%, 100%); }
+    }
+
+    .footer {
+      margin-top: 45px;
+      font-size: 0.7rem;
+      letter-spacing: 3px;
+      color: rgba(255,255,255,.4);
+    }
+  </style>
 </head>
 <body>
-    <!-- Partículas premium de diferentes tamaños -->
-    <div class="particle tiny"></div>
-    <div class="particle small"></div>
-    <div class="particle medium"></div>
-    <div class="particle large"></div>
-    <div class="particle tiny"></div>
-    <div class="particle small"></div>
-    <div class="particle medium"></div>
-    <div class="particle large"></div>
-    <div class="particle tiny"></div>
-    <div class="particle small"></div>
-    <div class="particle medium"></div>
-    <div class="particle large"></div>
 
-    <!-- Símbolos de cartas flotantes -->
-    <div class="card-symbol">♠</div>
-    <div class="card-symbol">♥</div>
-    <div class="card-symbol">♣</div>
-    <div class="card-symbol">♦</div>
-    <div class="card-symbol">♠</div>
-    <div class="card-symbol">♥</div>
+  <div class="container">
+    <div class="crown">👑</div>
 
-    <!-- Ornamentos de esquina -->
-    <div class="corner-ornament tl"></div>
-    <div class="corner-ornament tr"></div>
-    <div class="corner-ornament bl"></div>
-    <div class="corner-ornament br"></div>
+    <h1>CASINO VIP</h1>
+    <div class="subtitle">ACCESO EXCLUSIVO</div>
 
-    <!-- Luces volumétricas -->
-    <div class="volumetric-light v1"></div>
-    <div class="volumetric-light v2"></div>
-    <div class="volumetric-light v3"></div>
-    
-    <!-- Spotlight -->
-    <div class="spotlight"></div>
+    <div class="divider"></div>
 
-    <div class="container">
-        <!-- Header ultra cinematográfico -->
-        <div class="header">
-            <div class="crown-container">
-                <div class="crown-aura"></div>
-                <span class="crown-sparkle">✨</span>
-                <span class="crown-sparkle">✨</span>
-                <span class="crown-sparkle">✨</span>
-                <span class="crown-sparkle">✨</span>
-                <span class="crown-sparkle">✨</span>
-                <span class="crown-sparkle">✨</span>
-                <div class="crown-icon">👑</div>
-            </div>
-            
-            <h1 class="main-title">CASINO<br>ROYALE</h1>
-            <p class="subtitle">VIP ELITE MEMBERS ONLY</p>
-            <div class="vip-line"></div>
-            <p class="description">
-                Bienvenido al sanctuario del lujo absoluto. Aquí encontrarás acceso 
-                privilegiado a experiencias exclusivas, ofertas legendarias y atención 
-                VIP de clase mundial. La élite te está esperando.
-            </p>
-            <div class="premium-badge">★★★ PLATINUM MEMBER SINCE 2026 ★★★</div>
-        </div>
+    <p class="text">
+      Entraste al acceso correcto.<br>
+      Atención directa, premios reales<br>
+      y trato VIP inmediato.
+    </p>
 
-        <!-- WhatsApp Links Section -->
-        <div class="links-container">
-            <h2 class="section-title">CONTACTOS VIP DIRECTOS</h2>
-            
-            <div class="whatsapp-links">
-                <!-- 
-                ═══════════════════════════════════════════════════════════
-                🎰 PERSONALIZA TUS ENLACES DE WHATSAPP AQUÍ 🎰
-                ═══════════════════════════════════════════════════════════
-                
-                📱 INSTRUCCIONES:
-                1. Cambia "1234567890" por tu número de WhatsApp
-                2. Modifica el emoji del icono (💎, 🎰, 🏆, etc.)
-                3. Edita el título y subtítulo
-                4. Para AGREGAR: Copia todo el bloque desde <div class="link-item"> 
-                   hasta </div> (incluyendo el divisor)
-                5. Para ELIMINAR: Borra el bloque completo
-                -->
+    <!-- 📲 WHATSAPP PRINCIPAL -->
+    <a href="https://wa.me/5491111111111" target="_blank" class="btn">
+      <span>💬</span>
+      WHATSAPP PRINCIPAL
+    </a>
 
-                <!-- ENLACE 1 -->
-                <div class="link-item">
-                    <a href="https://wa.me/1234567890" class="whatsapp-btn" target="_blank">
-                        <div class="btn-content">
-                            <span class="wa-icon">💎</span>
-                            <div class="btn-text">
-                                <span class="btn-title">DIAMOND CONCIERGE</span>
-                                <span class="btn-subtitle">Atención VIP 24/7 Premium</span>
-                            </div>
-                        </div>
-                        <span class="arrow">→</span>
-                    </a>
-                </div>
+    <!-- 📲 WHATSAPP SECUNDARIO -->
+    <a href="https://wa.me/5492222222222" target="_blank" class="btn">
+      <span>📞</span>
+      WHATSAPP ALTERNATIVO
+    </a>
 
-                <div class="link-divider">◆ ◆ ◆</div>
-
-                <!-- ENLACE 2 -->
-                <div class="link-item">
-                    <a href="https://wa.me/1234567890" class="whatsapp-btn" target="_blank">
-                        <div class="btn-content">
-                            <span class="wa-icon">🎰</span>
-                            <div class="btn-text">
-                                <span class="btn-title">RESERVACIONES VIP</span>
-                                <span class="btn-subtitle">Mesas Privadas High Stakes</span>
-                            </div>
-                        </div>
-                        <span class="arrow">→</span>
-                    </a>
-                </div>
-
-                <div class="link-divider">◆ ◆ ◆</div>
-
-                <!-- ENLACE 3 -->
-                <div class="link-item">
-                    <a href="https://wa.me/1234567890" class="whatsapp-btn" target="_blank">
-                        <div class="btn-content">
-                            <span class="wa-icon">🏆</span>
-                            <div class="btn-text">
-                                <span class="btn-title">EVENTOS EXCLUSIVOS</span>
-                                <span class="btn-subtitle">Galas & Torneos Privados</span>
-                            </div>
-                        </div>
-                        <span class="arrow">→</span>
-                    </a>
-                </div>
-
-                <div class="link-divider">◆ ◆ ◆</div>
-
-                <!-- ENLACE 4 -->
-                <div class="link-item">
-                    <a href="https://wa.me/1234567890" class="whatsapp-btn" target="_blank">
-                        <div class="btn-content">
-                            <span class="wa-icon">🥂</span>
-                            <div class="btn-text">
-                                <span class="btn-title">SALA CHAMPAGNE</span>
-                                <span class="btn-subtitle">High Rollers Elite Club</span>
-                            </div>
-                        </div>
-                        <span class="arrow">→</span>
-                    </a>
-                </div>
-
-                <div class="link-divider">◆ ◆ ◆</div>
-
-                <!-- ENLACE 5 -->
-                <div class="link-item">
-                    <a href="https://wa.me/1234567890" class="whatsapp-btn" target="_blank">
-                        <div class="btn-content">
-                            <span class="wa-icon">💰</span>
-                            <div class="btn-text">
-                                <span class="btn-title">OFERTAS PLATINUM</span>
-                                <span class="btn-subtitle">Promociones Solo VIP</span>
-                            </div>
-                        </div>
-                        <span class="arrow">→</span>
-                    </a>
-                </div>
-
-                <!-- 
-                ═══════════════════════════════════════════════════════════
-                Copia el bloque completo desde arriba para agregar más
-                ═══════════════════════════════════════════════════════════
-                -->
-
-            </div>
-        </div>
-
-        <!-- Footer épico -->
-        <div class="footer">
-            <div class="footer-symbols">♠ ♥ ♣ ♦</div>
-            <p class="footer-text">Established 2026 · Ultimate Luxury</p>
-        </div>
+    <div class="footer">
+      ★ PREMIUM ACCESS ★
     </div>
+  </div>
+
 </body>
 </html>

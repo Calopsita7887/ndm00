@@ -5,15 +5,13 @@
   <title>Casino VIP 👑</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- FAVICON -->
+  <link rel="icon" type="image/png" href="777.png">
+
+  <!-- FUENTES -->
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      --gold: #d4af37;
-      --gold-soft: #f5e6a8;
-      --red: #7a0000;
-    }
-
     * {
       margin: 0;
       padding: 0;
@@ -22,32 +20,34 @@
 
     body {
       min-height: 100vh;
-      background:
-        radial-gradient(circle at top, rgba(212,175,55,0.18), transparent 60%),
-        linear-gradient(180deg, #000 0%, #0b0b0b 100%);
       font-family: 'Playfair Display', serif;
       color: #fff;
       text-align: center;
       overflow-x: hidden;
+
+      background:
+        linear-gradient(
+          rgba(0,0,0,0.35),
+          rgba(0,0,0,0.65)
+        ),
+        url("seda.png") center / cover no-repeat;
     }
 
-    /* 🎴 ICONOS DE FONDO */
+    /* ICONOS FLOTANTES */
     .bg-icon {
       position: fixed;
-      font-size: 4.2rem;
-      opacity: 0.08;
-      animation: floatSlow 28s ease-in-out infinite;
+      font-size: 3.6rem;
+      color: rgba(212,175,55,0.18);
       pointer-events: none;
       z-index: 0;
       filter: blur(0.4px);
+      animation: floatSlow ease-in-out infinite;
     }
 
-    .bg-icon.gold { color: var(--gold); }
-    .bg-icon.red { color: var(--red); }
-
     @keyframes floatSlow {
-      0%, 100% { transform: translate(0, 0); }
-      50% { transform: translate(50px, -60px); }
+      0% { transform: translate(0,0) scale(1); }
+      50% { transform: translate(60px,-80px) scale(1.06); }
+      100% { transform: translate(0,0) scale(1); }
     }
 
     .container {
@@ -59,16 +59,15 @@
       z-index: 2;
     }
 
-    /* 👑 CORONA */
     .crown {
       font-size: 4.8rem;
       margin-bottom: 15px;
-      filter: drop-shadow(0 0 28px var(--gold));
+      filter: drop-shadow(0 0 34px rgba(212,175,55,0.9));
       animation: crownFloat 4s ease-in-out infinite;
     }
 
     @keyframes crownFloat {
-      0%, 100% { transform: translateY(0); }
+      0%,100% { transform: translateY(0); }
       50% { transform: translateY(-12px); }
     }
 
@@ -76,98 +75,82 @@
       font-family: 'Cinzel', serif;
       font-size: 2.8rem;
       letter-spacing: 6px;
-      color: var(--gold);
       margin-bottom: 10px;
-      text-shadow: 0 0 25px rgba(212,175,55,0.6);
+      color: #d4af37;
+      text-shadow: 0 0 30px rgba(212,175,55,0.75);
     }
 
     .subtitle {
       font-size: 1rem;
       letter-spacing: 4px;
-      color: var(--gold-soft);
       margin-bottom: 25px;
+      color: #f5e6a8;
+      opacity: 0.95;
     }
 
     .divider {
       width: 120px;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #d4af37, transparent);
       margin: 0 auto 25px;
     }
 
     .text {
       font-size: 1.05rem;
       line-height: 1.7;
-      opacity: 0.9;
-      margin-bottom: 30px;
+      margin-bottom: 32px;
+      opacity: 0.95;
     }
 
     .age-warning {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       letter-spacing: 2px;
-      color: var(--gold-soft);
-      margin-bottom: 35px;
       opacity: 0.9;
+      margin-bottom: 35px;
     }
 
-    .age-warning span {
-      font-size: 1.2rem;
-    }
-
-    /* 📲 BOTÓN */
     .btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      padding: 20px;
+      display: block;
+      padding: 18px;
+      margin-bottom: 18px;
       border-radius: 10px;
-      background: linear-gradient(135deg, #3a0000, #000);
-      border: 2px solid var(--gold);
-      text-decoration: none;
+      border: 1px solid #d4af37;
       color: #fff;
+      text-decoration: none;
       font-family: 'Cinzel', serif;
       letter-spacing: 3px;
-      font-size: 0.95rem;
-      transition: all .35s ease;
-      box-shadow: 0 15px 40px rgba(0,0,0,.8);
+      background: rgba(0,0,0,0.65);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.8);
+      transition: all 0.3s ease;
     }
 
     .btn:hover {
       transform: scale(1.05);
-      box-shadow: 0 0 45px rgba(212,175,55,.6);
+      box-shadow: 0 0 42px rgba(212,175,55,0.7);
     }
 
     .footer {
       margin-top: 40px;
       font-size: 0.7rem;
       letter-spacing: 2px;
-      color: rgba(255,255,255,.45);
+      opacity: 0.6;
     }
 
     @media (max-width: 400px) {
-      h1 { font-size: 2.2rem; }
+      h1 { font-size: 2.3rem; letter-spacing: 4px; }
       .crown { font-size: 4.2rem; }
-      .bg-icon { font-size: 3.4rem; }
+      .bg-icon { font-size: 3.1rem; }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- 🎴 ICONOS DE FONDO -->
-  <div class="bg-icon gold" style="top:10%; left:6%; animation-delay:0s;">♠</div>
-  <div class="bg-icon red"  style="top:22%; left:18%; animation-delay:5s;">♥</div>
-  <div class="bg-icon gold" style="top:38%; left:4%; animation-delay:10s;">♦</div>
-  <div class="bg-icon gold" style="top:55%; left:22%; animation-delay:15s;">♣</div>
-  <div class="bg-icon gold" style="top:14%; right:8%; animation-delay:3s;">♠</div>
-  <div class="bg-icon red"  style="top:34%; right:18%; animation-delay:8s;">♥</div>
-  <div class="bg-icon gold" style="top:58%; right:6%; animation-delay:13s;">♦</div>
-  <div class="bg-icon gold" style="top:75%; right:20%; animation-delay:18s;">♣</div>
+  <!-- ICONOS FLOTANTES -->
+  <div class="bg-icon" style="top:10%; left:8%; animation-duration:20s;">♠</div>
+  <div class="bg-icon" style="top:28%; right:10%; animation-duration:24s;">♥</div>
+  <div class="bg-icon" style="top:55%; left:6%; animation-duration:28s;">♦</div>
+  <div class="bg-icon" style="top:75%; right:18%; animation-duration:32s;">♣</div>
 
   <div class="container">
     <div class="crown">👑</div>
@@ -183,12 +166,11 @@
     </p>
 
     <div class="age-warning">
-      <span>🔞</span> SOLO MAYORES DE 18 AÑOS
+      🔞 SOLO MAYORES DE 18 AÑOS
     </div>
 
-    <!-- 📲 TU WHATSAPP -->
-    <a href="https://wa.me/5491132592708?text=Hola%20vengo%20de%20parte%20de%20Yamila%20☺️%20quiero%20un%20usuario%20mi%20nombre%20es%20:" class="btn">
-      💬 CELUAPUESTAS
+    <a href="https://wa.me/5491132592708?text=Hola%20vengo%20de%20parte%20de%20Yamila%20☺️%20quiero%20un%20usuario%20" class="btn">
+      CELUAPUESTAS
     </a>
 
     <div class="footer">

@@ -50,18 +50,13 @@
       50% { transform: translate(50px, -60px); }
     }
 
-.container {
-  max-width: 420px;
-  width: 100%;
-  padding: 115px 25px 60px; /* punto justo */
-  margin: 0 auto;
-  animation: fadeIn 1.2s ease;
-  position: relative;
-  z-index: 2;
-} 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(40px); }
-      to { opacity: 1; transform: translateY(0); }
+    .container {
+      max-width: 420px;
+      width: 100%;
+      padding: 115px 25px 60px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
     }
 
     /* 👑 CORONA */
@@ -107,7 +102,6 @@
       margin-bottom: 30px;
     }
 
-    /* 🔞 +18 */
     .age-warning {
       display: flex;
       justify-content: center;
@@ -124,7 +118,7 @@
       font-size: 1.2rem;
     }
 
-    /* 📲 BOTONES */
+    /* 📲 BOTÓN */
     .btn {
       display: flex;
       align-items: center;
@@ -141,13 +135,6 @@
       font-size: 0.95rem;
       transition: all .35s ease;
       box-shadow: 0 15px 40px rgba(0,0,0,.8);
-      position: relative;
-      overflow: hidden;
-      margin-bottom: 18px;
-    }
-
-    .btn span {
-      font-size: 1.4rem;
     }
 
     .btn:hover {
@@ -155,29 +142,6 @@
       box-shadow: 0 0 45px rgba(212,175,55,.6);
     }
 
-    /* ✨ BRILLO */
-    .btn::before {
-      content: '';
-      position: absolute;
-      top: -120%;
-      left: -120%;
-      width: 300%;
-      height: 300%;
-      background: linear-gradient(
-        45deg,
-        transparent 40%,
-        rgba(212,175,55,0.35) 50%,
-        transparent 60%
-      );
-      animation: shine 7s ease-in-out infinite;
-    }
-
-    @keyframes shine {
-      0%, 65% { transform: translate(-100%, -100%); }
-      100% { transform: translate(100%, 100%); }
-    }
-
-    /* FOOTER */
     .footer {
       margin-top: 40px;
       font-size: 0.7rem;
@@ -196,17 +160,14 @@
 <body>
 
   <!-- 🎴 ICONOS DE FONDO -->
-<div class="bg-icon gold" style="top:10%; left:6%; animation-delay:0s;">♠</div>
-<div class="bg-icon red"  style="top:22%; left:18%; animation-delay:5s;">♥</div>
-
-<div class="bg-icon gold" style="top:38%; left:4%; animation-delay:10s;">♦</div>
-<div class="bg-icon gold" style="top:55%; left:22%; animation-delay:15s;">♣</div>
-
-<div class="bg-icon gold" style="top:14%; right:8%; animation-delay:3s;">♠</div>
-<div class="bg-icon red"  style="top:34%; right:18%; animation-delay:8s;">♥</div>
-
-<div class="bg-icon gold" style="top:58%; right:6%; animation-delay:13s;">♦</div>
-<div class="bg-icon gold" style="top:75%; right:20%; animation-delay:18s;">♣</div>
+  <div class="bg-icon gold" style="top:10%; left:6%; animation-delay:0s;">♠</div>
+  <div class="bg-icon red"  style="top:22%; left:18%; animation-delay:5s;">♥</div>
+  <div class="bg-icon gold" style="top:38%; left:4%; animation-delay:10s;">♦</div>
+  <div class="bg-icon gold" style="top:55%; left:22%; animation-delay:15s;">♣</div>
+  <div class="bg-icon gold" style="top:14%; right:8%; animation-delay:3s;">♠</div>
+  <div class="bg-icon red"  style="top:34%; right:18%; animation-delay:8s;">♥</div>
+  <div class="bg-icon gold" style="top:58%; right:6%; animation-delay:13s;">♦</div>
+  <div class="bg-icon gold" style="top:75%; right:20%; animation-delay:18s;">♣</div>
 
   <div class="container">
     <div class="crown">👑</div>
@@ -222,19 +183,12 @@
     </p>
 
     <div class="age-warning">
-      <span>🔞</span>
-      SOLO MAYORES DE 18 AÑOS
+      <span>🔞</span> SOLO MAYORES DE 18 AÑOS
     </div>
 
-    <!-- 📲 WHATSAPP -->
-    <a href="https://wa.me/5491111111111" target="_blank" class="btn">
-      <span>💬</span>
-      WHATSAPP PRINCIPAL
-    </a>
-
-    <a href="https://wa.me/5492222222222" target="_blank" class="btn">
-      <span>📞</span>
-      WHATSAPP ALTERNATIVO
+    <!-- 📲 TU WHATSAPP -->
+    <a href="https://wa.me/5491132592708?text=Hola%20vengo%20de%20parte%20de%20Yamila%20☺️%20quiero%20un%20usuario%20mi%20nombre%20es%20:" class="btn">
+      💬 CELUAPUESTAS
     </a>
 
     <div class="footer">

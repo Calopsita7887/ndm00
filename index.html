@@ -1,212 +1,255 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fichitas VIP 👑</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fichitas VIP 👑</title>
 
-        body {
-            min-height: 100vh;
-            font-family: 'Playfair Display', serif;
-            color: #fff;
-            text-align: center;
-            overflow-x: hidden;
-            background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.8)), url("seda.png") center/cover no-repeat fixed;
-            background-color: #0a0a0a; /* Color de respaldo */
-        }
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
 
-        .container {
-            max-width: 420px;
-            width: 100%;
-            padding: 60px 25px;
-            margin: 0 auto;
-        }
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
 
-        .crown {
-            font-size: 4.5rem;
-            margin-bottom: 10px;
-            filter: drop-shadow(0 0 25px rgba(212,175,55,.8));
-            animation: float 3s ease-in-out infinite;
-        }
+body{
+min-height:100vh;
+font-family:'Playfair Display',serif;
+color:#fff;
+text-align:center;
+overflow-x:hidden;
+background:#000;
+}
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
+/* VIDEO DE FONDO */
 
-        h1 {
-            font-family: 'Cinzel', serif;
-            font-size: 2.5rem;
-            letter-spacing: 4px;
-            margin-bottom: 5px;
-            color: #d4af37;
-            text-shadow: 0 0 20px rgba(212,175,55,0.5);
-        }
+#bg-video{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+z-index:-2;
+}
 
-        .subtitle {
-            font-size: 0.9rem;
-            letter-spacing: 5px;
-            margin-bottom: 25px;
-            color: #f5e6a8;
-            text-transform: uppercase;
-        }
+/* OVERLAY OSCURO */
 
-        .divider {
-            width: 150px;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #d4af37, transparent);
-            margin: 0 auto 30px;
-        }
+body::before{
+content:'';
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.65);
+z-index:-1;
+}
 
-        .text {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 30px;
-            font-weight: 400;
-        }
+.container{
+max-width:420px;
+width:100%;
+padding:60px 25px;
+margin:0 auto;
+}
 
-        .age-warning {
-            font-size: .8rem;
-            letter-spacing: 2px;
-            margin-bottom: 25px;
-            color: #ff4d4d;
-            font-weight: bold;
-        }
+.crown{
+font-size:4.5rem;
+margin-bottom:10px;
+filter:drop-shadow(0 0 25px rgba(212,175,55,.8));
+animation:float 3s ease-in-out infinite;
+}
 
-        /* BOTONES GENERALES */
-        .btn, .logo-btn {
-            transition: all 0.3s ease;
-            cursor: pointer;
-            outline: none;
-        }
+@keyframes float{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-10px);}
+}
 
-        .btn:active, .logo-btn:active {
-            transform: scale(0.96);
-        }
+h1{
+font-family:'Cinzel',serif;
+font-size:2.5rem;
+letter-spacing:4px;
+margin-bottom:5px;
+color:#d4af37;
+text-shadow:0 0 20px rgba(212,175,55,.5);
+}
 
-        /* BOTÓN LOGO */
-        .logo-btn {
-            display: block;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 12px;
-            border: 1px solid rgba(212,175,55,0.4);
-            background: rgba(15, 15, 15, 0.8);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            text-decoration: none;
-        }
+.subtitle{
+font-size:.9rem;
+letter-spacing:5px;
+margin-bottom:25px;
+color:#f5e6a8;
+text-transform:uppercase;
+}
 
-        .logo-btn img {
-            width: 100%;
-            max-width: 200px;
-            filter: drop-shadow(0 0 10px rgba(212,175,55,0.3));
-        }
+.divider{
+width:150px;
+height:1px;
+background:linear-gradient(90deg,transparent,#d4af37,transparent);
+margin:0 auto 30px;
+}
 
-        /* ACORDEÓN CRONOGRAMA */
-        details {
-            margin: 25px 0;
-            background: rgba(255,255,255,0.05);
-            border-radius: 8px;
-            padding: 10px;
-        }
+.text{
+font-size:1.1rem;
+line-height:1.6;
+margin-bottom:30px;
+}
 
-        summary {
-            cursor: pointer;
-            font-family: 'Cinzel', serif;
-            letter-spacing: 2px;
-            color: #d4af37;
-            list-style: none;
-            padding: 10px;
-        }
+.age-warning{
+font-size:.8rem;
+letter-spacing:2px;
+margin-bottom:25px;
+color:#ff4d4d;
+font-weight:bold;
+}
 
-        details img {
-            width: 100%;
-            margin-top: 15px;
-            border-radius: 8px;
-            border: 1px solid #d4af37;
-        }
+/* BOTÓN LOGO */
 
-        /* BOTÓN WHATSAPP CON BRILLO */
-        .btn-wa {
-            display: block;
-            position: relative;
-            overflow: hidden;
-            padding: 20px;
-            margin-top: 25px;
-            border-radius: 12px;
-            border: 1px solid #d4af37;
-            color: #fff;
-            text-decoration: none;
-            font-family: 'Cinzel', serif;
-            letter-spacing: 3px;
-            font-weight: bold;
-            background: linear-gradient(135deg, #1a1a1a, #000);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
-        }
+.logo-btn{
+display:block;
+position:relative;
+overflow:hidden;
+padding:20px;
+margin:20px 0;
+border-radius:12px;
+border:1px solid rgba(212,175,55,.4);
+background:rgba(15,15,15,.8);
+box-shadow:0 10px 30px rgba(0,0,0,.5);
+text-decoration:none;
+}
 
-        .btn-wa::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -60%;
-            width: 20%;
-            height: 200%;
-            background: rgba(255, 255, 255, 0.2);
-            transform: rotate(30deg);
-            animation: shine 4s infinite;
-        }
+.logo-btn img{
+width:100%;
+max-width:200px;
+filter:drop-shadow(0 0 10px rgba(212,175,55,.3));
+}
 
-        @keyframes shine {
-            0% { left: -60%; }
-            20% { left: 120%; }
-            100% { left: 120%; }
-        }
+/* CRONOGRAMA */
 
-        .footer {
-            margin-top: 50px;
-            font-size: .7rem;
-            letter-spacing: 2px;
-            opacity: .5;
-            text-transform: uppercase;
-        }
-    </style>
+details{
+margin:25px 0;
+background:rgba(255,255,255,.05);
+border-radius:8px;
+padding:10px;
+}
+
+summary{
+cursor:pointer;
+font-family:'Cinzel',serif;
+letter-spacing:2px;
+color:#d4af37;
+list-style:none;
+padding:10px;
+transition:color .3s ease;
+}
+
+details img{
+width:100%;
+margin-top:15px;
+border-radius:8px;
+border:1px solid #d4af37;
+opacity:0;
+transform:translateY(-10px);
+transition:all .35s ease;
+}
+
+details[open] img{
+opacity:1;
+transform:translateY(0);
+}
+
+details[open] summary{
+color:#fff;
+}
+
+/* WHATSAPP */
+
+.btn-wa{
+display:block;
+position:relative;
+overflow:hidden;
+padding:20px;
+margin-top:25px;
+border-radius:12px;
+border:1px solid #d4af37;
+color:#fff;
+text-decoration:none;
+font-family:'Cinzel',serif;
+letter-spacing:3px;
+font-weight:bold;
+background:linear-gradient(135deg,#1a1a1a,#000);
+box-shadow:0 15px 35px rgba(0,0,0,.6);
+}
+
+/* BRILLO GENERAL */
+
+.btn-wa::after,
+.logo-btn::after{
+content:'';
+position:absolute;
+top:-50%;
+left:-60%;
+width:20%;
+height:200%;
+background:rgba(255,255,255,.15);
+transform:rotate(30deg);
+animation:shine 5s infinite;
+}
+
+@keyframes shine{
+0%{left:-60%;}
+20%{left:120%;}
+100%{left:120%;}
+}
+
+.footer{
+margin-top:50px;
+font-size:.7rem;
+letter-spacing:2px;
+opacity:.5;
+text-transform:uppercase;
+}
+</style>
 </head>
+
 <body>
 
+<!-- VIDEO FONDO -->
+<video autoplay muted loop playsinline id="bg-video">
+<source src="video.mp4" type="video/mp4">
+</video>
+
 <div class="container">
-    <div class="crown">👑</div>
 
-    <h1>Fichitas VIP</h1>
-    <div class="subtitle">Acceso Exclusivo</div>
+<div class="crown">👑</div>
 
-    <div class="divider"></div>
+<h1>Fichitas VIP</h1>
+<div class="subtitle">Acceso Exclusivo</div>
 
-    <p class="text">
-        Entraste al lugar correcto.<br>
-        <strong>Atención directa y premios reales.</strong>
-    </p>
+<div class="divider"></div>
 
-    <div class="age-warning">🔞 SOLO MAYORES DE 18 AÑOS</div>
+<p class="text">
+Entraste al lugar correcto.<br>
+<strong>Atención directa y premios reales.</strong>
+</p>
 
-    <a href="https://celuapuestas.sbs/" target="_blank" class="logo-btn">
-        <img src="celuapuestas.png" alt="Celuapuestas Logo">
-    </a>
+<div class="age-warning">🔞 SOLO MAYORES DE 18 AÑOS</div>
 
-    <details>
-        <summary>📅 VER CRONOGRAMA</summary>
-        <img src="cronograma.png" alt="Cronograma de premios" loading="lazy">
-    </details>
+<a href="https://celuapuestas.sbs/" target="_blank" class="logo-btn">
+<img src="celuapuestas.png">
+</a>
 
-    <a href="https://wa.me/5491132592708?text=Hola%20vengo%20de%20parte%20de%20Yamila%20☺️%20quiero%20un%20usuario%20mi%20nombre%20es%20:%20" class="btn-wa">
-        CONTACTAR A CLAU
-    </a>
+<details>
+<summary>📅 VER CRONOGRAMA</summary>
+<img src="cronograma.png" loading="lazy">
+</details>
 
-    <div class="footer">
-        JUGÁ RESPONSABLEMENTE • 2026
-    </div>
+<a href="https://wa.me/5491132592708?text=Hola%20vengo%20de%20parte%20de%20Yamila%20☺️%20quiero%20un%20usuario%20mi%20nombre%20es%20:%20" class="btn-wa">
+CONTACTAR A CLAU
+</a>
+
+<div class="footer">
+JUGÁ RESPONSABLEMENTE • 2026
+</div>
+
 </div>
 
 </body>

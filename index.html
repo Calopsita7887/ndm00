@@ -112,7 +112,7 @@ opacity:.6;
 
 <body>
 
-<div class="container">
+<div class="container" id="top">
 
 <div class="crown">👑</div>
 
@@ -146,7 +146,7 @@ JUGÁ RESPONSABLEMENTE
 <script>
 document.querySelector("summary").addEventListener("click", function(){
 setTimeout(()=>{
-window.scrollTo({top:0,behavior:"smooth"});
+document.getElementById("top").scrollIntoView({behavior:"smooth"});
 },200);
 });
 </script>

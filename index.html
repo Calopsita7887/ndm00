@@ -1,177 +1,212 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Fichitas VIP 👑</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fichitas VIP 👑</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+        body {
+            min-height: 100vh;
+            font-family: 'Playfair Display', serif;
+            color: #fff;
+            text-align: center;
+            overflow-x: hidden;
+            background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.8)), url("seda.png") center/cover no-repeat fixed;
+            background-color: #0a0a0a; /* Color de respaldo */
+        }
 
-<style>
-*{margin:0;padding:0;box-sizing:border-box;}
+        .container {
+            max-width: 420px;
+            width: 100%;
+            padding: 60px 25px;
+            margin: 0 auto;
+        }
 
-body{
-min-height:100vh;
-font-family:'Playfair Display',serif;
-color:#fff;
-text-align:center;
-overflow-x:hidden;
-background:
-linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.65)),
-url("seda.png") center/cover no-repeat;
-}
+        .crown {
+            font-size: 4.5rem;
+            margin-bottom: 10px;
+            filter: drop-shadow(0 0 25px rgba(212,175,55,.8));
+            animation: float 3s ease-in-out infinite;
+        }
 
-.container{
-max-width:420px;
-width:100%;
-padding:115px 25px 60px;
-margin:0 auto;
-}
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
 
-.crown{
-font-size:4.8rem;
-margin-bottom:15px;
-filter:drop-shadow(0 0 34px rgba(212,175,55,.9));
-}
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            letter-spacing: 4px;
+            margin-bottom: 5px;
+            color: #d4af37;
+            text-shadow: 0 0 20px rgba(212,175,55,0.5);
+        }
 
-h1{
-font-family:'Cinzel',serif;
-font-size:2.8rem;
-letter-spacing:6px;
-margin-bottom:10px;
-color:#d4af37;
-text-shadow:0 0 30px rgba(212,175,55,.75);
-}
+        .subtitle {
+            font-size: 0.9rem;
+            letter-spacing: 5px;
+            margin-bottom: 25px;
+            color: #f5e6a8;
+            text-transform: uppercase;
+        }
 
-.subtitle{
-font-size:1rem;
-letter-spacing:4px;
-margin-bottom:25px;
-color:#f5e6a8;
-}
+        .divider {
+            width: 150px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #d4af37, transparent);
+            margin: 0 auto 30px;
+        }
 
-.divider{
-width:120px;
-height:1px;
-background:linear-gradient(90deg,transparent,#d4af37,transparent);
-margin:0 auto 25px;
-}
+        .text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
 
-.text{
-font-size:1.05rem;
-line-height:1.7;
-margin-bottom:32px;
-}
+        .age-warning {
+            font-size: .8rem;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+            color: #ff4d4d;
+            font-weight: bold;
+        }
 
-.age-warning{
-font-size:.85rem;
-letter-spacing:2px;
-margin-bottom:20px;
-}
+        /* BOTONES GENERALES */
+        .btn, .logo-btn {
+            transition: all 0.3s ease;
+            cursor: pointer;
+            outline: none;
+        }
 
-.btn{
-display:block;
-padding:18px;
-margin-top:20px;
-border-radius:10px;
-border:1px solid #d4af37;
-color:#fff;
-text-decoration:none;
-font-family:'Cinzel',serif;
-letter-spacing:3px;
-background:rgba(0,0,0,.65);
-box-shadow:0 15px 40px rgba(0,0,0,.8);
-}
+        .btn:active, .logo-btn:active {
+            transform: scale(0.96);
+        }
 
-/* BOTÓN LOGO */
+        /* BOTÓN LOGO */
+        .logo-btn {
+            display: block;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 12px;
+            border: 1px solid rgba(212,175,55,0.4);
+            background: rgba(15, 15, 15, 0.8);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            text-decoration: none;
+        }
 
-.logo-btn{
-display:block;
-padding:15px;
-margin:25px 0;
-border-radius:10px;
-border:1px solid #d4af37;
-background:rgba(0,0,0,.65);
-box-shadow:0 15px 40px rgba(0,0,0,.8);
-}
+        .logo-btn img {
+            width: 100%;
+            max-width: 200px;
+            filter: drop-shadow(0 0 10px rgba(212,175,55,0.3));
+        }
 
-.logo-btn img{
-width:100%;
-max-width:220px;
-display:block;
-margin:0 auto;
-filter:brightness(1.1) saturate(1.2) drop-shadow(0 0 20px rgba(212,175,55,.8));
-}
+        /* ACORDEÓN CRONOGRAMA */
+        details {
+            margin: 25px 0;
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+            padding: 10px;
+        }
 
-details{
-margin-bottom:20px;
-}
+        summary {
+            cursor: pointer;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 2px;
+            color: #d4af37;
+            list-style: none;
+            padding: 10px;
+        }
 
-summary{
-cursor:pointer;
-font-family:'Cinzel',serif;
-letter-spacing:3px;
-color:#d4af37;
-}
+        details img {
+            width: 100%;
+            margin-top: 15px;
+            border-radius: 8px;
+            border: 1px solid #d4af37;
+        }
 
-details img{
-width:100%;
-max-width:350px;
-margin-top:15px;
-border-radius:10px;
-box-shadow:0 0 25px rgba(212,175,55,.5);
-}
+        /* BOTÓN WHATSAPP CON BRILLO */
+        .btn-wa {
+            display: block;
+            position: relative;
+            overflow: hidden;
+            padding: 20px;
+            margin-top: 25px;
+            border-radius: 12px;
+            border: 1px solid #d4af37;
+            color: #fff;
+            text-decoration: none;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 3px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #1a1a1a, #000);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+        }
 
-.footer{
-margin-top:40px;
-font-size:.7rem;
-letter-spacing:2px;
-opacity:.6;
-}
-</style>
+        .btn-wa::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 20%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(30deg);
+            animation: shine 4s infinite;
+        }
+
+        @keyframes shine {
+            0% { left: -60%; }
+            20% { left: 120%; }
+            100% { left: 120%; }
+        }
+
+        .footer {
+            margin-top: 50px;
+            font-size: .7rem;
+            letter-spacing: 2px;
+            opacity: .5;
+            text-transform: uppercase;
+        }
+    </style>
 </head>
-
 <body>
 
 <div class="container">
+    <div class="crown">👑</div>
 
-<div class="crown">👑</div>
+    <h1>Fichitas VIP</h1>
+    <div class="subtitle">Acceso Exclusivo</div>
 
-<h1>Fichitas VIP</h1>
-<div class="subtitle">ACCESO EXCLUSIVO</div>
+    <div class="divider"></div>
 
-<div class="divider"></div>
+    <p class="text">
+        Entraste al lugar correcto.<br>
+        <strong>Atención directa y premios reales.</strong>
+    </p>
 
-<p class="text">
-Entraste al lugar correcto.<br>
-Atención directa y premios reales.
-</p>
+    <div class="age-warning">🔞 SOLO MAYORES DE 18 AÑOS</div>
 
-<div class="age-warning">🔞 SOLO MAYORES DE 18 AÑOS</div>
+    <a href="https://celuapuestas.sbs/" target="_blank" class="logo-btn">
+        <img src="celuapuestas.png" alt="Celuapuestas Logo">
+    </a>
 
-<!-- BOTÓN CELUAPUESTAS -->
+    <details>
+        <summary>📅 VER CRONOGRAMA</summary>
+        <img src="cronograma.png" alt="Cronograma de premios" loading="lazy">
+    </details>
 
-<a href="https://celuapuestas.sbs/" target="_blank" class="logo-btn">
-<img src="celuapuestas.png">
-</a>
+    <a href="https://wa.me/5491132592708?text=Hola%20vengo%20de%20parte%20de%20Yamila%20☺️%20quiero%20un%20usuario%20mi%20nombre%20es%20:%20" class="btn-wa">
+        CONTACTAR A CLAU
+    </a>
 
-<!-- CRONOGRAMA -->
-
-<details>
-<summary>📅 VER CRONOGRAMA</summary>
-<img src="cronograma.png">
-</details>
-
-<!-- WHATSAPP -->
-
-<a href="https://wa.me/5491132592708?text=Hola%20vengo%20de%20parte%20de%20Yamila%20☺️%20quiero%20un%20usuario%20mi%20nombre%20es%20:%20" class="btn">
-CLAU
-</a>
-
-<div class="footer">
-JUGÁ RESPONSABLEMENTE
-</div>
-
+    <div class="footer">
+        JUGÁ RESPONSABLEMENTE • 2024
+    </div>
 </div>
 
 </body>
